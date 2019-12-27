@@ -4,7 +4,9 @@ require 'dotenv/tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
-RSpec::Core::RakeTask.new(:spec)
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = '--format documentation'
+end
 
 RuboCop::RakeTask.new(:rubocop) do |t|
   t.options = [
