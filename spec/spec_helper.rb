@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start
+
 require 'dotenv'
 Dotenv.load
 
-require 'simplecov'
 require 'simplecov-material'
 require 'simplecov-console'
 require 'rspec/expectations'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   [
-    SimpleCov::Formatter::HTMLFormatter,
     SimpleCov::Formatter::MaterialFormatter,
-    SimpleCov::Formatter::Console
+    SimpleCov::Formatter::Console,
   ]
 )
-
-SimpleCov.start
 
 RSpec::Matchers.define :have_length do |length|
   match do |list|
