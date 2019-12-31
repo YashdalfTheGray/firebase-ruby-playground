@@ -10,3 +10,5 @@ gem 'simplecov-material'
 gem 'simplecov-console'
 gem 'google-cloud-firestore'
 gem 'dotenv', '~> 2.7'
+
+gem "factory_bot", "~> 5.1"
