@@ -5,7 +5,7 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = '--format documentation'
+  t.rspec_opts = '--format documentation --require spec_helper'
 end
 
 RuboCop::RakeTask.new(:rubocop) do |t|
@@ -13,7 +13,7 @@ RuboCop::RakeTask.new(:rubocop) do |t|
     '--auto-correct',
     '--color',
     '--disable-uncorrectable',
-    '--display-cop-names'
+    '--display-cop-names',
   ]
 end
 
