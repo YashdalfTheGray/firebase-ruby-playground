@@ -2,6 +2,7 @@
 
 require 'securerandom'
 require 'date'
+require 'json'
 
 module Playground
   module Models
@@ -16,6 +17,22 @@ module Playground
         @name = name
         @email = email
         @phone = phone
+      end
+
+      def to_h
+        instance_variables.reduce({}) do |hash, v|
+          name = v.to_s[1..-1]
+          value = send(name) if respond_to? name
+          hash[name] = if value.is_a? DateTime
+            value.to_s
+          else
+            value
+          end
+        end
+      end
+
+      def serialize
+        JSON.generate(self)
       end
     end
   end
