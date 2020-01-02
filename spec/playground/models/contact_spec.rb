@@ -22,6 +22,15 @@ module Playground
         expect(test_contact.created_at).to be_a(DateTime)
         expect(test_contact.updated_at).to be_a(DateTime)
       end
+
+      it 'has the ability to be converted into a hash' do
+        expect(test_contact.to_h).to have_key 'name'
+        expect(test_contact.to_h).to have_key 'email'
+        expect(test_contact.to_h).to have_key 'phone'
+        expect(test_contact.to_h).to have_key 'id'
+        expect(test_contact.to_h).to have_key 'created_at'
+        expect(test_contact.to_h).to have_key 'updated_at'
+      end
     end
   end
 end
