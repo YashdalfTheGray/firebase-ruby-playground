@@ -11,6 +11,12 @@ Layout/MultilineAssignmentLayout:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+
 Style/TrailingCommaInArrayLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
