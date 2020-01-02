@@ -20,9 +20,9 @@ module Playground
       end
 
       def to_h
-        instance_variables.reduce({}) do |hash, v|
+        instance_variables.each_with_object({}) do |v, hash|
           name = v.to_s[1..-1]
-          value = send(name) if respond_to? name
+          value = send(name)
           hash[name] = if value.is_a? DateTime
             value.to_s
           else
