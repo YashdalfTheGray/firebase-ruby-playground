@@ -19,6 +19,21 @@ module Playground
         @phone = phone
       end
 
+      def name=(name)
+        @name = name
+        @updated_at = DateTime.now
+      end
+
+      def email=(email)
+        @email = email
+        @updated_at = DateTime.now
+      end
+
+      def phone=(phone)
+        @phone = phone
+        @updated_at = DateTime.now
+      end
+
       def to_h
         instance_variables.each_with_object({}) do |v, hash|
           name = v.to_s[1..-1]
