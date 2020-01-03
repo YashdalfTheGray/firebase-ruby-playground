@@ -30,3 +30,11 @@ RSpec::Matchers.define :have_length do |length|
     "given list was not expected to have length #{length}"
   end
 end
+
+RSpec::Matchers.define :happen_after do |point_of_time|
+  match do |test_time|
+    time_unix = point_of_time.strftime('%Q').to_i
+    test_unix = test_time.strftime('%Q').to_i
+    test_unix > time_unix
+  end
+end
