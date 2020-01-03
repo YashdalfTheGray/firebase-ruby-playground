@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faker'
+require 'json'
 
 require 'playground/models/contact'
 
@@ -30,6 +31,12 @@ module Playground
         expect(test_contact.to_h).to have_key 'id'
         expect(test_contact.to_h).to have_key 'created_at'
         expect(test_contact.to_h).to have_key 'updated_at'
+      end
+
+      it 'can be converted to valid json' do
+        json_string = test_contact.serialize
+
+        expect { JSON.parse(json_string) }.not_to raise_error
       end
     end
   end
