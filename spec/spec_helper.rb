@@ -21,4 +21,12 @@ RSpec::Matchers.define :have_length do |length|
   match do |list|
     list.length == length
   end
+
+  failure_message do
+    "given list was expected to have length #{length}"
+  end
+
+  failure_message_when_negated do
+    "given list was not expected to have length #{length}"
+  end
 end
