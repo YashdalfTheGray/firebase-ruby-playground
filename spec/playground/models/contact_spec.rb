@@ -33,6 +33,14 @@ module Playground
         expect(test_contact.to_h).to have_key 'updated_at'
       end
 
+      it 'tracks the updated datetime when updating name' do
+        original_update_time = test_contact.updated_at
+        sleep 0.01 # so that udpate times are different
+        test_contact.name = 'Guybrush Threepwood'
+        expect(test_contact.name).to eq 'Guybrush Threepwood'
+        expect(test_contact.updated_at).to happen_after original_update_time
+      end
+
       it 'can be converted to valid json' do
         json_string = test_contact.serialize
 
