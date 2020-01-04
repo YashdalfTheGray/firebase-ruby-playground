@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require 'securerandom'
 require 'date'
 require 'json'
+require 'securerandom'
+require 'uri'
 
 module Playground
   module Models
@@ -25,6 +26,10 @@ module Playground
       end
 
       def email=(email)
+        if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+          raise ArgumentError, "invalid email provided: #{email}"
+        end
+
         @email = email
         @updated_at = DateTime.now
       end
