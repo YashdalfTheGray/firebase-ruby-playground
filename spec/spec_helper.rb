@@ -37,4 +37,12 @@ RSpec::Matchers.define :happen_after do |point_of_time|
     test_unix = test_time.strftime('%Q').to_i
     test_unix > time_unix
   end
+
+  failure_message do |test_time|
+    "expected #{test_time} to happen after #{point_of_time}"
+  end
+
+  failure_message_when_negated do |test_time|
+    "expected #{test_time} not to happen after #{point_of_time}"
+  end
 end
