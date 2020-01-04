@@ -41,6 +41,18 @@ module Playground
         expect(test_contact.updated_at).to happen_after original_update_time
       end
 
+      it 'tracks the updated datetime when updating email' do
+        original_update_time = test_contact.updated_at
+        sleep 0.01 # so that udpate times are different
+        test_contact.email = 'guybrush@threepwood.io'
+        expect(test_contact.email).to eq 'guybrush@threepwood.io'
+        expect(test_contact.updated_at).to happen_after original_update_time
+      end
+
+      it 'throws an error if given an incorrect email format' do
+        expect { test_contact.email = 'stuff' }.to raise_error ArgumentError
+      end
+
       it 'can be converted to valid json' do
         json_string = test_contact.serialize
 
