@@ -11,3 +11,5 @@ gem 'simplecov-console'
 gem 'google-cloud-firestore'
 gem 'dotenv', '~> 2.7'
 gem "faker", "~> 2.10"
+
+gem "os", "~> 1.0"
