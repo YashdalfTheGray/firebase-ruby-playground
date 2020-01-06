@@ -25,4 +25,8 @@ task :pry do
   ruby 'bin/pry.rb'
 end
 
+task :open_coverage do
+  sh %( #{OS.open_file_command} "coverage/index.html" )
+end
+
 task default: %i[spec rubocop]
