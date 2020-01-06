@@ -4,9 +4,24 @@ require 'dotenv/tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
+require 'fileutils'
+require 'os'
+
+def alias_task(name, old_name)
+  t = Rake::Task[old_name]
+  desc t.full_comment if t.full_comment
+  task name, *t.arg_names do |_, args|
+    # values_at is broken on Rake::TaskArguments
+    args = t.arg_names.map { |a| args[a] }
+    t.invoke(*args)
+  end
+end
+
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = '--format documentation --require spec_helper'
 end
+
+alias_task :test, :spec
 
 RuboCop::RakeTask.new(:rubocop) do |t|
   t.options = [
