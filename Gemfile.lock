@@ -104,6 +104,7 @@ GEM
       simplecov
       terminal-table
     simplecov-html (0.10.2)
+    simplecov-lcov (0.7.0)
     simplecov-material (0.5.0)
       simplecov (>= 0.16.0)
     terminal-table (1.8.0)
@@ -124,6 +125,7 @@ DEPENDENCIES
   rubocop
   simplecov
   simplecov-console
+  simplecov-lcov (~> 0.7.0)
   simplecov-material
 
 BUNDLED WITH

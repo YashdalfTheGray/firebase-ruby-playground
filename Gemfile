@@ -13,3 +13,4 @@ gem 'rubocop', require: false
 gem 'simplecov'
 gem 'simplecov-console'
 gem 'simplecov-material'
+gem 'simplecov-lcov', '~> 0.7.0'
