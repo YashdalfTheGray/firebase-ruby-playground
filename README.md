@@ -5,6 +5,22 @@
 
 A ruby playground to experiment with the ruby wrapper for the FIrebase API.
 
+## Running under Docker
+
+Once you have the repository pulled down, you can run under Docker without having to have ruby or any of the tooling required installed and set up. There are a couple of things to know about but besides that, it's a pretty standard Docker image build and container run. The commands are listed below and you're going to need a firestore created for this as well.
+
+```
+docker build -t ruby-firebase-playground --build-arg project_id=<firebase_project_id> .
+```
+
+The `project_id` build arg sets the Firebase project ID for the container. The second thing to know is that you have to mount the creds file to get access to your Firebase project. That happens in the `docker run` command and it looked a little like this.
+
+```
+docker run -it --rm --name <container_name> -v <path/to/creds/file.json>:/usr/creds/firebase.json ruby-firebase-playground
+```
+
+Once you run successfully, this will put you in `pry` with all of the relevant code `require`d in.
+
 ## Installation
 
 Pull the repository down and run `bundle install` to get all the dependencies. If you don't have `bundle`, run `gem install bundler`. This project uses Ruby 2.6.x.
