@@ -57,6 +57,7 @@ module Playground
         json_string = test_contact.serialize
 
         expect { JSON.parse(json_string) }.not_to raise_error
+        expect(JSON.parse(json_string)).to eq test_contact.to_h
       end
     end
   end
