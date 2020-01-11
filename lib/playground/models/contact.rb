@@ -52,7 +52,7 @@ module Playground
       end
 
       def serialize
-        JSON.generate(self)
+        JSON.generate(to_h)
       end
     end
   end
