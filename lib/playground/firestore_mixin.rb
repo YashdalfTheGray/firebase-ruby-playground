@@ -4,7 +4,7 @@ module Playground
   # FirestoreMixin holds all of the oeprations that
   # we can perform on the data
   module FirestoreMixin
-    def read(collection, doc)
+    def write(collection, doc)
       document_ref = @firestore.doc "#{collection}/#{doc.id}"
       begin
         document_ref.set doc.serialize
