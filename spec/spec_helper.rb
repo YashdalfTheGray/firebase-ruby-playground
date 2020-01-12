@@ -26,6 +26,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   ]
 )
 
+RSpec.configure do |config|
+  config.mock_with :rspec do |mocks|
+    mocks.verify_doubled_constant_names = true
+    mocks.verify_partial_doubles = true
+  end
+end
+
 RSpec::Matchers.define :have_length do |length|
   match do |list|
     list.length == length
