@@ -17,6 +17,9 @@ Metrics/BlockLength:
     - "**/*.rake"
     - "spec/**/*.rb"
 
+Metrics/LineLength:
+  Max: 120
+
 Style/TrailingCommaInArrayLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
