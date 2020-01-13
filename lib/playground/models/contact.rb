@@ -26,9 +26,7 @@ module Playground
       end
 
       def email=(email)
-        if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
-          raise ArgumentError, "invalid email provided: #{email}"
-        end
+        raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
 
         @email = email
         @updated_at = DateTime.now
