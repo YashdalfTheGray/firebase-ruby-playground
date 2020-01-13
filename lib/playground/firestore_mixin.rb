@@ -9,7 +9,7 @@ module Playground
       begin
         document_ref.set doc.serialize
       rescue NoMethodError
-        raise ArgumentError 'Document is not serializable'
+        raise ArgumentError, 'Document is not serializable'
       end
     end
   end
