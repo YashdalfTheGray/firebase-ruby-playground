@@ -42,7 +42,7 @@ module Playground
           name = v.to_s[1..-1]
           value = send(name)
           hash[name] = if value.is_a? DateTime
-            value.to_s
+            value.iso8601(9)
           else
             value
           end
