@@ -53,6 +53,14 @@ module Playground
         expect { test_contact.email = 'stuff' }.to raise_error ArgumentError
       end
 
+      it 'tracks the updated datetime when updating phone' do
+        original_update_time = test_contact.updated_at
+        sleep 0.01 # so that udpate times are different
+        test_contact.phone = '888-867-5309'
+        expect(test_contact.phone).to eq '888-867-5309'
+        expect(test_contact.updated_at).to happen_after original_update_time
+      end
+
       it 'can be converted to valid json' do
         json_string = test_contact.serialize
 
