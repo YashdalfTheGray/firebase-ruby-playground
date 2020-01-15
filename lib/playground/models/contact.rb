@@ -53,6 +53,19 @@ module Playground
         JSON.generate(to_h)
       end
 
+      def self.deserialize(json_string)
+        details = JSON.parse(json_string)
+
+        validate(details)
+
+        contact = new(details['name'], details['email'], details['phone'])
+        contact.instance_variable_set('@id', details['id'])
+        contact.instance_variable_set('@created_at', DateTime.parse(details['created_at']))
+        contact.instance_variable_set('@updated_at', DateTime.parse(details['updated_at']))
+
+        contact
+      end
+
       def self.validate(json_hash)
         %w[name email phone id created_at updated_at].each do |key|
           raise ArgumentError, "cannot deserialize given object, missing key #{key}" unless json_hash.key? key
