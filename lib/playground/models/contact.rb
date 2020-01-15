@@ -57,6 +57,8 @@ module Playground
         %w[name email phone id created_at updated_at].each do |key|
           raise ArgumentError, "cannot deserialize given object, missing key #{key}" unless json_hash.key? key
         end
+
+        true
       end
     end
   end
