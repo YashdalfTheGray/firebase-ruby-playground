@@ -2,6 +2,8 @@
 
 require 'faker'
 require 'json'
+require 'date'
+require 'securerandom'
 
 require 'playground/models/contact'
 
@@ -69,6 +71,32 @@ module Playground
 
           expect { JSON.parse(json_string) }.not_to raise_error
           expect(JSON.parse(json_string)).to eq test_contact.to_h
+        end
+      end
+
+      context 'deserialization' do
+        it 'validation returns true for a hash that can be deserialized' do
+          hash_to_test = {
+            'name' => 'stuff',
+            'phone' => '888-867-5309',
+            'email' => 'stuff@foo.com',
+            'id' => SecureRandom.uuid,
+            'created_at' => DateTime.now.iso8601(9),
+            'updated_at' => DateTime.now.iso8601(9),
+          }
+
+          expect(Contact.validate(hash_to_test)).to eq true
+        end
+
+        it 'raises an error for a hash that cannot be deserialized' do
+          hash_to_test = {
+            'name' => 'stuff',
+            'phone' => '888-867-5309',
+            'email' => 'stuff@foo.com',
+            'id' => SecureRandom.uuid,
+          }
+
+          expect { Contact.validate(hash_to_test) }.to raise_error ArgumentError
         end
       end
     end
