@@ -98,6 +98,24 @@ module Playground
 
           expect { Contact.validate(hash_to_test) }.to raise_error ArgumentError
         end
+
+        it 'deserializes a string into a contact object' do
+          hash_string = test_contact.serialize
+          contact = Contact.deserialize hash_string
+
+          expect(contact.to_h).to eq test_contact.to_h
+        end
+
+        it 'throws an error for a string that has incorrect properties' do
+          hash_string = JSON.generate(
+            'name' => 'stuff',
+            'phone' => '888-867-5309',
+            'email' => 'stuff@foo.com',
+            'id' => SecureRandom.uuid
+          )
+
+          expect { Contact.deserialize hash_string }.to raise_error ArgumentError
+        end
       end
     end
   end
