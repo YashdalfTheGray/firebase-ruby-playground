@@ -3,6 +3,7 @@
 require 'dotenv/tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
+require 'yard'
 
 require 'fileutils'
 require 'os'
@@ -31,6 +32,8 @@ RuboCop::RakeTask.new(:rubocop) do |t|
     '--display-cop-names',
   ]
 end
+
+YARD::Rake::YardocTask.new
 
 task :play do
   ruby 'bin/run.rb'
