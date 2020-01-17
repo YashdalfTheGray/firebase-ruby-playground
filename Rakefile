@@ -51,4 +51,4 @@ task :open_docs do
   sh %( #{OS.open_file_command} "doc/index.html" )
 end
 
-task default: %i[spec rubocop]
+task default: %i[spec rubocop yard]
