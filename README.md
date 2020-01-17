@@ -1,5 +1,6 @@
 [![Build Status](https://github.com/YashdalfTheGray/firebase-ruby-playground/workflows/Build/badge.svg)](https://github.com/YashdalfTheGray/firebase-ruby-playground/actions)
 [![Coverage Status](https://coveralls.io/repos/github/YashdalfTheGray/firebase-ruby-playground/badge.svg?branch=master)](https://coveralls.io/github/YashdalfTheGray/firebase-ruby-playground?branch=master)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/yashdalfthegray/firebase-ruby-playground/master)
 
 # firebase-ruby-playground
 
