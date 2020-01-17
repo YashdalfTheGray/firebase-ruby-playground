@@ -26,6 +26,11 @@ module Playground
         expect(test_contact.updated_at).to be_a(DateTime)
       end
 
+      it 'throws an error on an invalid email' do
+        expect { Contact.new(Faker::Name.name, 'stuff@', Faker::PhoneNumber.cell_phone) }
+          .to raise_error ArgumentError
+      end
+
       context 'properties' do
         it 'tracks the updated datetime when updating name' do
           original_update_time = test_contact.updated_at

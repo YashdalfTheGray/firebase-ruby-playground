@@ -11,10 +11,19 @@ module Playground
     class Contact
       attr_reader :id, :created_at, :updated_at, :name, :email, :phone
 
+      # Creates a new contact object
+      #
+      # @param name [String] the name of the contact
+      # @param email [String] the email of the contact
+      # @param phone [String] the phone number of the contact
+      # @returns [Contact] a new contact with the given information
       def initialize(name, email, phone)
         @id = SecureRandom.uuid
         @created_at = DateTime.now
         @updated_at = DateTime.now
+
+        validate_email email
+
         @name = name
         @email = email
         @phone = phone
@@ -26,7 +35,7 @@ module Playground
       end
 
       def email=(email)
-        raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+        validate_email email
 
         @email = email
         @updated_at = DateTime.now
@@ -35,6 +44,12 @@ module Playground
       def phone=(phone)
         @phone = phone
         @updated_at = DateTime.now
+      end
+
+      def validate_email(email)
+        raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+
+        true
       end
 
       def to_h
