@@ -47,4 +47,8 @@ task :open_coverage do
   sh %( #{OS.open_file_command} "coverage/index.html" )
 end
 
+task :open_docs do
+  sh %( #{OS.open_file_command} "doc/index.html" )
+end
+
 task default: %i[spec rubocop]
