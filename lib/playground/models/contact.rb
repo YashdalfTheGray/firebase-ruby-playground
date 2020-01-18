@@ -29,11 +29,18 @@ module Playground
         @phone = phone
       end
 
+      # sets the name of the contact
+      #
+      # @param name [String] the new name to set to
       def name=(name)
         @name = name
         @updated_at = DateTime.now
       end
 
+      # sets the email after validating it. Must match the
+      # pattern set by URI::MailTo::EMAIL_REGEXP
+      #
+      # @param email [string] the new email to set
       def email=(email)
         validate_email email
 
