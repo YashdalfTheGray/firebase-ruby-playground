@@ -53,12 +53,6 @@ module Playground
         @updated_at = DateTime.now
       end
 
-      def validate_email(email)
-        raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
-
-        true
-      end
-
       def to_h
         instance_variables.each_with_object({}) do |v, hash|
           name = v.to_s[1..-1]
@@ -92,6 +86,14 @@ module Playground
         %w[name email phone id created_at updated_at].each do |key|
           raise ArgumentError, "cannot deserialize given object, missing key #{key}" unless json_hash.key? key
         end
+
+        true
+      end
+
+      private
+
+      def validate_email(email)
+        raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
 
         true
       end
