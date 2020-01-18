@@ -48,7 +48,12 @@ module Playground
         @updated_at = DateTime.now
       end
 
+      # sets the phone number after validating it
+      #
+      # @param phone [string] the new phone to set
       def phone=(phone)
+        validate_phone phone
+
         @phone = phone
         @updated_at = DateTime.now
       end
@@ -94,6 +99,13 @@ module Playground
 
       def validate_email(email)
         raise ArgumentError, "invalid email provided: #{email}" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+
+        true
+      end
+
+      def validate_phone(phone)
+        phone_regex = /(?:\+1-)?\(?\d{3}(?:\)\s|-)?\d{3}-?\d{4}/
+        raise ArgumentError, "invalid phone provided: #{phone}" if (phone =~ phone_regex).nil?
 
         true
       end
