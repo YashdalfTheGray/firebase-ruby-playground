@@ -43,11 +43,11 @@ task :pry do
   ruby 'bin/pry.rb'
 end
 
-task :open_coverage do
+task open_coverage: :spec do
   sh %( #{OS.open_file_command} "coverage/index.html" )
 end
 
-task :open_docs do
+task open_docs: :yard do
   sh %( #{OS.open_file_command} "doc/index.html" )
 end
 
