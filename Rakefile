@@ -51,4 +51,8 @@ task open_docs: :yard do
   sh %( #{OS.open_file_command} "doc/index.html" )
 end
 
+task :docs_server do
+  sh %( #{OS.open_file_command} "http://localhost:8808" && yard server --reload )
+end
+
 task default: %i[spec rubocop yard]
