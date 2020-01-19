@@ -16,3 +16,5 @@ gem 'simplecov-lcov', '~> 0.7.0'
 gem 'simplecov-material'
 
 gem 'yard', '~> 0.9.24'
+
+gem "redcarpet", "~> 3.5"
