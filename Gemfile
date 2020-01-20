@@ -17,4 +17,4 @@ gem 'simplecov-material'
 
 gem 'yard', '~> 0.9.24'
 
-gem "redcarpet", "~> 3.5"
+gem 'redcarpet', '~> 3.5'
