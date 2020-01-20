@@ -11,14 +11,14 @@ Layout/MultilineAssignmentLayout:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
+Layout/LineLength:
+  Max: 120
+
 Metrics/BlockLength:
   Exclude:
     - "Rakefile"
     - "**/*.rake"
     - "spec/**/*.rb"
-
-Metrics/LineLength:
-  Max: 120
 
 Style/TrailingCommaInArrayLiteral:
   Enabled: true
