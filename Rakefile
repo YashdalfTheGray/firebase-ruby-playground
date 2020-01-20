@@ -33,9 +33,7 @@ RuboCop::RakeTask.new(:rubocop) do |t|
   ]
 end
 
-YARD::Rake::YardocTask.new do |t|
-  t.options = ['--markup markdown']
-end
+YARD::Rake::YardocTask.new
 
 task :play do
   ruby 'bin/run.rb'
