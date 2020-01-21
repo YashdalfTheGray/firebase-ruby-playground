@@ -58,6 +58,11 @@ module Playground
         @updated_at = DateTime.now
       end
 
+      # returns a hash representation of the contact so
+      # that it can be serialized
+      #
+      # @return [Hash{String=>String}] a hash with all the
+      #   properties from the contact
       def to_h
         instance_variables.each_with_object({}) do |v, hash|
           name = v.to_s[1..-1]
@@ -70,6 +75,11 @@ module Playground
         end
       end
 
+      # returns a JSON string representation of the contact
+      # @see #to_h
+      #
+      # @return [String] the JSON string that represents
+      #   this contact
       def serialize
         JSON.generate(to_h)
       end
