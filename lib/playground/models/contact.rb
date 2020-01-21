@@ -8,6 +8,24 @@ require 'uri'
 module Playground
   module Models
     # Contact represents a person's data in a contact book
+    #
+    # @!attribute [r] id
+    #   @return [String] a uuid for the contact
+    # @!attribute [r] created_at
+    #   @return [DateTime] the date and time that the contact was created
+    # @!attribute [r] updated_at
+    #   @return [DateTime] the date and time of the last update
+    # @!attribute [rw] name
+    #   @param name [String] the new name to set for the contact
+    #   @return [String] the name of the contact
+    # @!attribute [rw] email
+    #   @param email [String] the new email to set for the contact.
+    #     Expected to match `URI::MailTo::EMAIL_REGEXP`.
+    #   @return [String] the email of the contact
+    # @!attribute [rw] phone
+    #   @param phone [String] the new phone number for the contact.
+    #     Expected to match `(?:\+1-)?\(?\d{3}(?:\)|-)?\d{3}-?\d{4}`.
+    #   @return [String] the phone number of the contact
     class Contact
       attr_reader :id, :created_at, :updated_at, :name, :email, :phone
 
