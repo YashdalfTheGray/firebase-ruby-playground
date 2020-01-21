@@ -104,7 +104,7 @@ module Playground
       end
 
       def validate_phone(phone)
-        phone_regex = /(?:\+1-)?\(?\d{3}(?:\)\s|-)?\d{3}-?\d{4}/
+        phone_regex = /(?:\+1-)?\(?\d{3}(?:\)|-)?\d{3}-?\d{4}/
         raise ArgumentError, "invalid phone provided: #{phone}" if (phone =~ phone_regex).nil?
 
         true
