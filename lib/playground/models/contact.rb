@@ -16,7 +16,7 @@ module Playground
       # @param name [String] the name of the contact
       # @param email [String] the email of the contact
       # @param phone [String] the phone number of the contact
-      # @returns [Contact] a new contact with the given information
+      # @return [Contact] a new contact with the given information
       def initialize(name, email, phone)
         @id = SecureRandom.uuid
         @created_at = DateTime.now
@@ -29,18 +29,11 @@ module Playground
         @phone = phone
       end
 
-      # sets the name of the contact
-      #
-      # @param name [String] the new name to set to
       def name=(name)
         @name = name
         @updated_at = DateTime.now
       end
 
-      # sets the email after validating it. Must match the
-      # pattern set by URI::MailTo::EMAIL_REGEXP
-      #
-      # @param email [string] the new email to set
       def email=(email)
         validate_email email
 
@@ -48,9 +41,6 @@ module Playground
         @updated_at = DateTime.now
       end
 
-      # sets the phone number after validating it
-      #
-      # @param phone [string] the new phone to set
       def phone=(phone)
         validate_phone phone
 
