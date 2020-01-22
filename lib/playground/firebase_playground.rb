@@ -22,5 +22,20 @@ module Playground
     def initialize(config)
       @firestore = Google::Cloud::Firestore.new project_id: config[:project_id]
     end
+
+    private
+
+    # validates a configuration passed to the constructor
+    #
+    # @param config [Hash{String=>String}] the config to validate
+    def config_valid?(config)
+      valid_keys = ['project_id']
+
+      return false if config.keys.empty? || config.keys.length != valid_keys.length
+
+      valid_keys.reduce(true) do |valid, key|
+        valid && config.key?(key.to_sym)
+      end
+    end
   end
 end
