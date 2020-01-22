@@ -13,6 +13,12 @@ module Playground
   class FirebasePlayground
     include FirestoreMixin
 
+    # creates a new instance of the FirebasePlayground. Proper access is
+    # required to interact with the project
+    #
+    # @param config [Hash{String=>String}] the config to pass to firebase.
+    #   So far, config only has 1 valid property, `:project_id`,
+    #   which is the project id for the firebase database you want to access
     def initialize(config)
       @firestore = Google::Cloud::Firestore.new project_id: config[:project_id]
     end
