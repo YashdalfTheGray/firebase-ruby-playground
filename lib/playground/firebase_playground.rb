@@ -20,6 +20,8 @@ module Playground
     #   So far, config only has 1 valid property, `:project_id`,
     #   which is the project id for the firebase database you want to access
     def initialize(config)
+      raise ArgumentError, 'the config provided is not valid' unless config_valid?(config)
+
       @firestore = Google::Cloud::Firestore.new project_id: config[:project_id]
     end
 
