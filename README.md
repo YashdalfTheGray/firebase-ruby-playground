@@ -58,6 +58,11 @@ Just running `rake` or `bundle exec rake` will run the `spec` and `rubocop` task
 ## References
 
 - [Firestore Ruby Getting Started](https://firebase.google.com/docs/firestore/quickstart)
+- [Firestore RDoc](https://googleapis.dev/ruby/google-cloud-firestore/latest/Google/Cloud/Firestore.html)
+- [Firestore query data guide](https://firebase.google.com/docs/firestore/query-data/get-data)
+- [Firestore add data guide](https://firebase.google.com/docs/firestore/manage-data/add-data)
+- [Firestore data model](https://firebase.google.com/docs/firestore/data-model)
+-
 - [Faker API](https://github.com/faker-ruby/faker)
 - [RSpec docs](https://relishapp.com/rspec/)
 - [Simplecov](https://github.com/colszowka/simplecov)
